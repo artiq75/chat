@@ -12,6 +12,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "better-sqlite3": "^8.5.0",
     "ws": "^8.13.0"
   }
 }

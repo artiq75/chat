@@ -1,7 +1,16 @@
 import { WebSocketServer } from "ws";
 import { randomUUID } from "node:crypto";
+import Database from "better-sqlite3";
+import { join } from "node:path";
 
 const wss = new WebSocketServer({ port: 8080 });
+const db = new Database(join("..", "db.sql"));
+const stmt = db.prepare(`CREATE TABLE IF NOT EXISTS users(
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  createdAt INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP
+);`);
+stmt.run();
 
 const connections = new Map();
 const messages = [];
@@ -14,6 +23,7 @@ wss.on("connection", (ws) => {
         const { username } = event;
         ws.client = { username, id: randomUUID() };
         connections.set(ws.client.id, ws);
+        db.prepare("SELECT username FROM users").get();
         ws.send(
           JSON.stringify({
             type: "login",
@@ -33,6 +43,7 @@ wss.on("connection", (ws) => {
         }
         const createAt = Date.now();
         messages.push({ client, message, createAt });
+        console.log(insert);
         wss.clients.forEach((c) => {
           c.send(
             JSON.stringify({
