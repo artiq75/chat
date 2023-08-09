@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websocket</title>
+  </head>
+  <body>
+    <section id="chat" aria-hidden="true">
+      <h2>Chat</h2>
+      <ul></ul>
+    </section>
+    <form id="message" aria-hidden="true">
+      <label for="message">Ajouter un message</label>
+      <textarea name="message" id="message" cols="30" rows="5"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+    <form id="login">
+      <h2>Connexion</h2>
+      <label for="username">Identifiant</label>
+      <input type="text" name="username" id="username" />
+      <button type="submit">Se connecter</button>
+    </form>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
