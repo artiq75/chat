@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #146bdc;
+  --secondary-color: #d7d2d8;
+  --duration: .3s;
+}
+
 *,
 *::before,
 *::after {
@@ -23,12 +29,20 @@ body {
   display: none !important;
 }
 
+.text-center {
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-weight: 400;
+}
+
 input,
 textarea {
   width: 100%;
   padding: 1em;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid var(--secondary-color);
   font: inherit;
   resize: vertical;
 }
@@ -39,6 +53,31 @@ button {
   border-radius: 5px;
   width: max-content;
   font: inherit;
+  transition: var(--duration);
+  cursor: pointer;
+}
+
+.btn.btn-primary {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn.btn-primary:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+  filter: brightness(.9);
+}
+
+.btn.btn-secondary-outlined {
+  border-color: var(--secondary-color);
+  background-color: transparent;
+}
+
+.btn.btn-secondary-outlined:hover {
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 form {
@@ -47,8 +86,8 @@ form {
   grid-auto-rows: min-content;
 }
 
-#login {
-  border: 1px solid gray;
+#authForm {
+  border: 1px solid var(--secondary-color);
   padding: 1em;
   height: min-content;
   border-radius: 5px;
@@ -60,7 +99,7 @@ form {
 }
 
 #chat ul {
-  border: 1px solid gray;
+  border: 1px solid var(--secondary-color);
   padding: 1em;
   border-radius: 7px;
   background-color: white;
@@ -75,6 +114,6 @@ form {
 }
 
 #chat strong {
-  font-size: .9em;
+  font-size: 0.9em;
   font-weight: 600;
 }

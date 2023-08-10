@@ -36,9 +36,9 @@ export default class DOMChat {
     for (const message of messages) {
       fragment.appendChild(
         this.getMessageElement(
-          message.client.username,
+          message.username,
           message.message,
-          new Date(message.createAt)
+          new Date(message.createdAt)
         )
       );
     }

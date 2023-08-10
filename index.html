@@ -12,16 +12,27 @@
       <h2>Chat</h2>
       <ul></ul>
     </section>
-    <form id="message" aria-hidden="true">
+    <form id="messageForm" aria-hidden="true">
       <label for="message">Ajouter un message</label>
       <textarea name="message" id="message" cols="30" rows="5"></textarea>
       <button type="submit">Envoyer</button>
     </form>
-    <form id="login">
-      <h2>Connexion</h2>
+    <form id="authForm">
+      <h2 class="text-center">Connexion</h2>
       <label for="username">Identifiant</label>
       <input type="text" name="username" id="username" />
-      <button type="submit">Se connecter</button>
+      <div>
+        <button type="submit" class="btn btn-primary" data-action="login">
+          Se connecter
+        </button>
+        <button
+          type="submit"
+          class="btn btn-secondary-outlined"
+          data-action="register"
+        >
+          S'inscrire
+        </button>
+      </div>
     </form>
     <script type="module" src="src/main.js"></script>
   </body>
